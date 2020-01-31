@@ -1,0 +1,227 @@
+@font-face {
+  font-family: "My Roboto";
+  src: url("./Roboto-Regular.ttf");
+}
+body {
+  margin: 0;
+}
+.background {
+  position: fixed;
+  height: 100%;
+  z-index: -1000;
+}
+#root {
+  font-family: "My Roboto";
+  font-size: 16px;
+
+  input {
+    font-family: "My Roboto";
+    font-size: 1em;
+  }
+}
+.card-search {
+  float: right;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  input {
+    padding: 5px;
+    &:focus {
+      border: 2px solid white;
+      background: rgb(255, 246, 168);
+    }
+  }
+
+  button {
+    padding: 7px;
+    font-size: 1em;
+    border-radius: 0;
+    color: white;
+    background: rgb(17, 82, 193);
+    border: 1px solid rgb(120, 185, 243);
+    // border-radius: 5px;
+    // box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em rgb(13, 6, 196);
+    // background: linear-gradient(rgb(117, 195, 251), rgb(17, 82, 193) 70%);
+
+    &:hover {
+      cursor: pointer;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(73, 155, 234, 1) 7%,
+        rgba(73, 155, 234, 1) 22%,
+        rgba(32, 124, 229, 1) 81%,
+        rgba(32, 124, 229, 1) 100%
+      );
+    }
+    &:active {
+      background: radial-gradient(
+        ellipse at center,
+        rgba(73, 155, 234, 1) 7%,
+        rgb(27, 115, 198) 22%,
+        rgb(12, 93, 186) 81%,
+        rgb(6, 84, 174) 100%
+      );
+    }
+  }
+}
+
+.cards-view {
+  width: 100%;
+
+  tr {
+    text-align: center;
+
+    input {
+      text-align: center;
+      border: none;
+    }
+  }
+}
+th {
+  background: rgb(120, 185, 243);
+  color: white;
+  padding: 10px 20px;
+}
+td,
+td input {
+  background: rgb(216, 230, 243);
+}
+
+.delete-card {
+  border-radius: 5px;
+  margin: auto;
+  background: rgb(44, 44, 44);
+  color: white;
+  cursor: pointer;
+  width: 20px;
+  padding: 2px;
+
+  &:hover {
+    background: rgb(255, 0, 0);
+  }
+}
+.new-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  form {
+    background: rgb(120, 185, 243);
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    h2 {
+      color: white;
+    }
+    fieldset {
+      margin: 10px 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      border: none;
+
+      input,
+      select {
+        font-size: 16px;
+        width: 100%;
+        border: 1px solid white;
+        background: rgb(216, 230, 243);
+        &:focus {
+          border: 1px solid rgb(17, 82, 193);
+        }
+      }
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 1.2em;
+      padding: 8px;
+      color: white;
+      border: 1px solid rgb(120, 185, 243);
+      border-radius: 5px;
+      background: rgb(17, 82, 193);
+
+      &:hover {
+        cursor: pointer;
+        border: 1px solid white;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(73, 155, 234, 1) 7%,
+          rgba(73, 155, 234, 1) 22%,
+          rgba(32, 124, 229, 1) 81%,
+          rgba(32, 124, 229, 1) 100%
+        );
+      }
+      &:active {
+        background: radial-gradient(
+          ellipse at center,
+          rgba(73, 155, 234, 1) 7%,
+          rgb(27, 115, 198) 22%,
+          rgb(12, 93, 186) 81%,
+          rgb(6, 84, 174) 100%
+        );
+      }
+    }
+  }
+}
+.active {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  display: none !important;
+}
+
+.alert {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: block;
+  margin: 10px 20px;
+  padding: 10px;
+  color: blue;
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.view-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2em;
+  border: 1px solid rgb(120, 185, 243);
+  border-bottom-right-radius: 15px;
+  background: rgb(120, 185, 243);
+
+  &:hover {
+    cursor: pointer;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(73, 155, 234, 1) 7%,
+      rgba(73, 155, 234, 1) 22%,
+      rgba(32, 124, 229, 1) 81%,
+      rgba(32, 124, 229, 1) 100%
+    );
+  }
+
+  &:active {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(73, 155, 234, 1) 7%,
+      rgb(21, 72, 120) 22%,
+      rgb(6, 68, 138) 81%,
+      rgb(1, 50, 106) 100%
+    );
+  }
+
+  img {
+    width: 30px;
+    padding: 4px;
+  }
+}
