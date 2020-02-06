@@ -12,12 +12,15 @@ export default class CardsTable extends Component {
                         <th>Вес(кг)</th>
                         <th>Группа Крови</th>
                         <th>Дата создания</th>
-                        <th>Удаление</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.props.cards ? this.props.cards.map((card) => (
-                        <TableLine updateTable={this.props.updateTable} key={card._id} card={card}></TableLine>
+                        <TableLine
+                            key={card._id}
+                            card={card}
+                            chooseCard={this.props.chooseCard}
+                        />
                     )) : null}
                 </tbody>
             </table>

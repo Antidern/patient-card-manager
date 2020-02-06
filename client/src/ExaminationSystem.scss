@@ -67,39 +67,27 @@ body {
 
 .cards-view {
   width: 100%;
+  text-align: center;
 
-  tr {
-    text-align: center;
+  thead {
+    th {
+      background: rgb(120, 185, 243);
+      color: white;
+      padding: 10px 20px;
+    }
+  }
 
-    input {
-      text-align: center;
-      border: none;
+  tbody {
+    tr {
+      background: rgb(216, 230, 243);
+      cursor: pointer;
+      &:hover {
+        background: rgb(189, 197, 204);
+      }
     }
   }
 }
-th {
-  background: rgb(120, 185, 243);
-  color: white;
-  padding: 10px 20px;
-}
-td,
-td input {
-  background: rgb(216, 230, 243);
-}
 
-.delete-card {
-  border-radius: 5px;
-  margin: auto;
-  background: rgb(44, 44, 44);
-  color: white;
-  cursor: pointer;
-  width: 20px;
-  padding: 2px;
-
-  &:hover {
-    background: rgb(255, 0, 0);
-  }
-}
 .new-card {
   position: fixed;
   top: 0;
@@ -223,5 +211,92 @@ td input {
   img {
     width: 30px;
     padding: 4px;
+  }
+}
+
+.edit-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.4);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: grid;
+    grid-template-columns: auto minmax(20%, 60%);
+    gap: 10px;
+
+    width: 30%;
+
+    background: rgb(120, 185, 243);
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: white;
+
+    input,
+    select {
+      font-size: 16px;
+      border: 1px solid white;
+      background: rgb(216, 230, 243);
+      &:focus {
+        border: 1px solid rgb(17, 82, 193);
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 1.2em;
+      padding: 8px;
+      color: white;
+      border: 1px solid rgb(120, 185, 243);
+      border-radius: 5px;
+      background: rgb(17, 82, 193);
+
+      &:hover {
+        cursor: pointer;
+        border: 1px solid white;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(73, 155, 234, 1) 7%,
+          rgba(73, 155, 234, 1) 22%,
+          rgba(32, 124, 229, 1) 81%,
+          rgba(32, 124, 229, 1) 100%
+        );
+      }
+      &:active {
+        background: radial-gradient(
+          ellipse at center,
+          rgba(73, 155, 234, 1) 7%,
+          rgb(148, 151, 155) 22%,
+          rgb(12, 93, 186) 81%,
+          rgb(6, 84, 174) 100%
+        );
+      }
+    }
+
+    button[type="submit"] {
+      grid-column: 2 / 3;
+    }
+
+    .delete-card {
+      grid-column: 1 / 2;
+      grid-row: 7 / 8;
+      border-radius: 5px;
+      background: rgb(44, 44, 44);
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background: rgb(172, 8, 8);
+      }
+    }
   }
 }

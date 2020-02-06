@@ -3,13 +3,15 @@ import './ExaminationSystem.scss';
 import CardsView from './components/CardsView';
 import NewCard from './components/NewCard';
 import background from './фон_сайта2.jpg';
+import EditCard from './components/EditCard';
 //основной контейнер приложения
 export default class ExaminationSystem extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            cards: []
+            cards: [],
+            choosenCard: ''
         }
     }
 
@@ -31,13 +33,30 @@ export default class ExaminationSystem extends Component {
             });
     }
 
+    chooseCard = (card) => {
+        this.setState(oldState => {
+            oldState.choosenCard = card;
+            return oldState;
+        });
+    }
+
     render() {
         return (
-            <>  
-                <img className='background' src={background} alt=""/>
+            <>
+                <img className='background' src={background} alt="" />
                 <h2 className='alert hidden'>Добавлена новая запись</h2>
-                <CardsView cards={this.state.cards} updateTable={this.updateTable}></CardsView>
-                <NewCard updateTable={this.updateTable}></NewCard>
+                <CardsView
+                    cards={this.state.cards}
+                    chooseCard={this.chooseCard}
+                />
+                <NewCard updateTable={this.updateTable} />
+                {this.state.choosenCard ? (
+                    <EditCard
+                        choosenCard={this.state.choosenCard}
+                        updateTable={this.updateTable}
+                        chooseCard={this.chooseCard}
+                    />
+                ) : null}
             </>
         )
     }

@@ -6,8 +6,11 @@ export default class CardsView extends Component {
     render() {
         return (
             <div>
-                <CardSearch updateTable={this.props.updateTable}></CardSearch>
-                <CardsTable updateTable={this.props.updateTable} cards={this.props.cards}></CardsTable>
+                <CardSearch updateTable={this.props.updateTable} />
+                <CardsTable
+                    cards={this.props.cards}
+                    chooseCard={this.props.chooseCard}
+                />
             </div>
         )
     }

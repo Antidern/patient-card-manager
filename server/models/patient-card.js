@@ -15,6 +15,9 @@ const PatientCardSchema = new Schema({
    bloodGroup: {
        type: String,
    },
+   rh: {
+       type: String,
+   },
    publicationDate: {
        type: Date
    }
