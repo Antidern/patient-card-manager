@@ -48,6 +48,7 @@ export default class ExaminationSystem extends Component {
                 <CardsView
                     cards={this.state.cards}
                     chooseCard={this.chooseCard}
+                    updateTable={this.updateTable}
                 />
                 <NewCard updateTable={this.updateTable} />
                 {this.state.choosenCard ? (
